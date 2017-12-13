@@ -182,6 +182,7 @@ int main() {
 
             // child process
             if ((pid = fork()) == 0) {
+                signal(SIGINT, SIG_DFL);
                 if (has_redir_out) {
                     fd = open(fname, O_WRONLY | O_CREAT | O_TRUNC, 0644);
                     close(1);
